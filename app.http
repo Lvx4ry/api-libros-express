@@ -1,0 +1,28 @@
+# INDEX
+GET http://localhost:4000
+
+###
+#GET ALL BOOKS
+GET http://localhost:4000/books
+
+###
+#GET PHILOSOPHY BOOKS
+GET http://localhost:4000/books?genre=thriller
+
+
+###
+#GET BOOK ID
+GET http://localhost:4000/books/1f671e84-76b2-4c1f-9e3e-09b1a7b37c6f
+
+###
+#POST A BOOK
+POST http://localhost:4000/books
+Content-Type: application/json;
+
+{
+  "name": "Digital Dreams",
+  "author": "Robert Tech",
+  "genre": "Thriller",
+  "publishedYear": 2022,
+  "availableCopies": 7
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1f671e84-76b2-4c1f-9e3e-09b1a7b37c6f",
+    "name": "The Silent Innovator",
+    "author": "John Doe",
+    "genre": "Science Fiction",
+    "publishedYear": 2023,
+    "availableCopies": 12
+  },
+  {
+    "id": "cb927e63-d5f8-4b99-8143-d8c2a4cf4d8f",
+    "name": "Mastering the Art of Nothing",
+    "author": "Jane Smith",
+    "genre": "Philosophy",
+    "publishedYear": 2019,
+    "availableCopies": 5
+  },
+  {
+    "id": "afe230dc-7c9b-42cb-8a5b-7bdb637478ea",
+    "name": "Cooking Beyond Reality",
+    "author": "Gordon Foodman",
+    "genre": "Cooking",
+    "publishedYear": 2021,
+    "availableCopies": 8
+  },
+  {
+    "id": "3ab29ae2-611b-4386-a9df-1d66e02d92f5",
+    "name": "A Programmer's Diary",
+    "author": "Alice Dev",
+    "genre": "Technology",
+    "publishedYear": 2020,
+    "availableCopies": 3
+  },
+  {
+    "id": "de96cd3e-7763-4e8b-809c-0cb4b2897d14",
+    "name": "The Last Runner",
+    "author": "Catherine Miles",
+    "genre": "Thriller",
+    "publishedYear": 2022,
+    "availableCopies": 10
+  }
+]
