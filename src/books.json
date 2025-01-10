@@ -30,13 +30,5 @@
     "genre": "Technology",
     "publishedYear": 2020,
     "availableCopies": 3
-  },
-  {
-    "id": "de96cd3e-7763-4e8b-809c-0cb4b2897d14",
-    "name": "The Last Runner",
-    "author": "Catherine Miles",
-    "genre": "Thriller",
-    "publishedYear": 2022,
-    "availableCopies": 10
   }
 ]
