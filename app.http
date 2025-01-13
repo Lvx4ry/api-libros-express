@@ -7,7 +7,7 @@ GET http://localhost:4000/books
 
 ###
 #GET PHILOSOPHY BOOKS
-GET http://localhost:4000/books?genre=thriller
+GET http://localhost:4000/books?genre=science%20fiction
 
 
 ###
@@ -29,16 +29,16 @@ Content-Type: application/json
 
 ###
 #DELETE A BOOK
-DELETE http://localhost:4000/books/de96cd3e-7763-4e8b-809c-0cb4b2897d14
+DELETE http://localhost:4000/books/d2f3da90-d8a5-4828-90dd-80da94abfa03
 Content-Type: application/json
 
 ###
 #PATCH A BOOK
-PATCH http://localhost:4000/books/de96cd3e-7763-4e8b-809c-0cb4b2897d14
+PATCH http://localhost:4000/books/61565c71-e967-458e-9a28-feffd2c29ac
 Content-Type: application/json
 
 {
-    "genre": "Science Fiction"
+    "genre": "Thriller"
 }
 
 

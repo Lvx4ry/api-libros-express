@@ -1,4 +1,4 @@
-const z = require("zod");
+import { z } from "zod";
 
 const bookSchema = z.object({
   name: z.string(),
@@ -14,12 +14,10 @@ const bookSchema = z.object({
   availableCopies: z.number().int().positive(),
 });
 
-function validateBook(object) {
+export function validateBook(object) {
   return bookSchema.safeParse(object);
 }
 
-function partialValidateBook(object) {
+export function partialValidateBook(object) {
   return bookSchema.partial().safeParse(object);
 }
-
-module.exports = { validateBook, partialValidateBook };
