@@ -2,8 +2,10 @@
   "name": "api-libros-express",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,7 @@
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.21.2",
+    "nodemon": "3.1.9",
     "zod": "3.24.1"
   },
   "devDependencies": {
@@ -19,8 +22,5 @@
     "eslint": "^8.57.1",
     "globals": "^15.14.0",
     "standard": "^17.1.2"
-  },
-  "eslintConfig": {
-    "extends": "standard"
   }
 }
