@@ -1,22 +1,25 @@
 import express from "express";
 import { corsMiddleware } from "./middleware/corsMiddleware.js";
-import { booksRouter } from "./routes/booksRouter.js";
+import { createBooksRouter } from "./routes/booksRouter.js";
 
-const app = express();
+export function createApp({ booksModel }) {
+  const app = express();
 
-app.use(corsMiddleware({}));
-app.use(express.json()); /// PARSEA LAS REQ DE JSON A STRING
+  app.disable("x-powered-by");
 
-///GET
-app.get("/", (req, res) => {
-  res.json("Holi!");
-});
+  app.use(corsMiddleware({}));
+  app.use(express.json()); /// PARSEA LAS REQ DE JSON A STRING
 
-app.use("/books", booksRouter);
-app.use("/books/:id", booksRouter);
+  app.use("/books", createBooksRouter({ booksModel }));
+  app.use("/books/:id", createBooksRouter({ booksModel }));
 
-const PORT = process.env.PORT || 4000;
+  app.use("/", (req, res) => {
+    res.status(404).json({ error: "no se encontro el recurso indicado" });
+  });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+  const PORT = process.env.PORT || 4000;
+
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}

@@ -2,45 +2,41 @@ import {randomUUID} from "node:crypto"
 import { writeFileSync } from "node:fs";
 import books from "../src/books.json" with { type: "json" };
 
+class Response {
+  constructor({ error = undefined, data = undefined }) {
+    (this.data = data), (this.error = error);
+  }
+}
+
 export class booksModel {
   
   static async getAll({ genre }) {
+    
     if (genre) {
       const filteredBooks = books.filter(
         (b) => b.genre.toLowerCase() === genre.toLowerCase()
       );
-      return filteredBooks;
+      return new Response({data: filteredBooks});
     }
-    return books;
+    return new Response({data: books});
   }
 
   static async getById({id}) {  
     const targetBook = books.find((el) => el.id === id);
-
-    const res = {
-    "data": undefined,
-    "error": undefined
-    }
-
+  
     if (targetBook) {
-        res.data = targetBook
+      return new Response({data: targetBook});
     } else {
-        res.error = "no se encotro ningun libro con la id dada"
+      return new Response({error : "no se encotro ningun libro con la id dada"});
     }  
-    
-    return res;
   }
 
   static async create({ input }) {
-    const res = {
-        data: undefined,
-        error: undefined
-    }
+    
      if (
           books.some((b) => b.name.toLowerCase() === input.name.toLowerCase())
         ) {
-            res.error = "ya existe un libro con ese titulo, para actualizar el libro ya existente, utilizar PATCH"
-    
+          return new Response({error: "ya existe un libro con ese titulo, para actualizar el libro ya existente, utilizar PATCH"});    
           } else {            
             const newBook = {
               id: randomUUID(),
@@ -50,9 +46,9 @@ export class booksModel {
             books.push(newBook);
             ///sobreescribe el archivo .json con la nueva array de libros, con el nuevo incluido
             writeFileSync("./src/books.json", JSON.stringify(books));
-            res.data = newBook
-          }   
-       return res;
+            return new Response({data: newBook});
+           }   
+       
   }
 
   static async delete({ id }) {
@@ -75,14 +71,12 @@ export class booksModel {
   }
 
   static async update({ id, input }) {
-    const res = {data: undefined,
-      error: undefined
-    }
-
+    
     const indice = books.findIndex((b) => b.id === id);
 
     if (indice === -1) {
-      res.error = `no se encontro ningun recurso con el id: ${id}`
+      return new Response({error: `no se encontro ningun recurso con el id: ${id}`});
+      
     }else {      
       const patchedBook = {
         ...books[indice],
@@ -93,10 +87,8 @@ export class booksModel {
       
       writeFileSync("./src/books.json", JSON.stringify(books));
 
-      res.data = patchedBook;
+      return new Response({data: patchedBook});
       
     }
-    return res;
-
   }
 }

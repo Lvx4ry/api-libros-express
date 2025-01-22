@@ -7,8 +7,7 @@ GET http://localhost:4000/books
 
 ###
 #GET PHILOSOPHY BOOKS
-GET http://localhost:4000/books?genre=science%20fiction
-
+GET http://localhost:4000/books?genre=SCIENCE%20fiction
 
 ###
 #GET BOOK ID
@@ -20,25 +19,25 @@ POST http://localhost:4000/books
 Content-Type: application/json
 
 {
-  "name": "Digital Dreams",
+  "name": "Philosophy Book",
   "author": "Robert Tech",
-  "genre": "Thriller",
+  "genre": "Philosophy",
   "publishedYear": 2022,
   "availableCopies": 7
 }
 
 ###
 #DELETE A BOOK
-DELETE http://localhost:4000/books/d2f3da90-d8a5-4828-90dd-80da94abfa03
+DELETE http://localhost:4000/books/064196bf-95f6-4eb7-840b-2945014b8f49
 Content-Type: application/json
 
 ###
 #PATCH A BOOK
-PATCH http://localhost:4000/books/61565c71-e967-458e-9a28-feffd2c29ac
+PATCH http://localhost:4000/books/61565c71-e967-458e-9a28-feffd24c29ac
 Content-Type: application/json
 
 {
-    "genre": "Thriller"
+    "name": "Digital Dreams 2"
 }
 
 
